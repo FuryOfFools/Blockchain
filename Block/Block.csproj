@@ -73,6 +73,7 @@
     <Compile Include="BlockchainForm.Designer.cs">
       <DependentUpon>BlockchainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IBlock.cs" />
     <Compile Include="Interactions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
