@@ -77,7 +77,7 @@ namespace BC
         }
 
         //длина цепочки
-        public int Count => Items.Count;
+        public int count { get => Items.Count; }
 
         //получить блок по индексу
         public IBlock this[int index]

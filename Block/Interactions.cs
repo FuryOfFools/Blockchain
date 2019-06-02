@@ -58,15 +58,5 @@ namespace Interactions
                 return File.ReadAllBytes(fileName);
             return null;
         }
-
-        //public static void SaveFileFromBlock(IBlock block, string fileName)
-        //{
-        //    byte[] data = block.Data;
-        //    using (BinaryWriter bw = new BinaryWriter(File.Open(fileName, FileMode.Create)))
-        //    {
-        //        bw.Write(data);
-        //    }
-        //}
-
     }
 }

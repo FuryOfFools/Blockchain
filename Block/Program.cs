@@ -9,8 +9,6 @@ namespace Program
         [STAThread]
         static void Main()
         {
-            //BlockchainForm bf = new BlockchainForm();
-            //bf.ShowDialog();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BlockchainForm());
