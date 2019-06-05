@@ -74,7 +74,8 @@
       <DependentUpon>BlockchainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IBlock.cs" />
-    <Compile Include="Interactions.cs" />
+    <Compile Include="LocalInteractions.cs" />
+    <Compile Include="OnlineInteractions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
