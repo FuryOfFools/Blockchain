@@ -28,7 +28,6 @@ namespace Interactions
         public static Blockchain LoadBlockchain(string fileName)
         {
             Blockchain chain;
-            //todo: есть ли в сети
 
             //есть ли в локальном хранилище
             if (FileExists(fileName))
@@ -47,7 +46,6 @@ namespace Interactions
         public static void AddData(this Blockchain chain, byte[] Data)
         {
             IBlock block = new Block(Data);
-            //todo: добавление в очередь для майнеров вместо добавления вручную
             chain.Add(block);
         }
 
