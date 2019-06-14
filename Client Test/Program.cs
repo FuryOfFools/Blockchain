@@ -37,6 +37,7 @@ namespace Client_Test
                 Console.WriteLine("ответ сервера: " + builder.ToString());
 
                 // закрываем сокет
+                //todo: удаление себя из списка в сервере
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
             }
