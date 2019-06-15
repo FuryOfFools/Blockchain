@@ -18,8 +18,11 @@ namespace Client_Test
                 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 // подключаемся к удаленному хосту
                 socket.Connect(ipPoint);
-                Console.Write("Введите сообщение:");
-                string message = Console.ReadLine();
+                Console.WriteLine("Введите ник:");
+                string name = Console.ReadLine();
+                Console.WriteLine($"1 - Вывести список пользователей:\n2 - Удалить пользователя");
+                Console.WriteLine("Введите сообщение:");
+                string message = name + "|" + Console.ReadLine();
                 byte[] data = Encoding.Unicode.GetBytes(message);
                 socket.Send(data);
 
@@ -34,8 +37,7 @@ namespace Client_Test
                     builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                 }
                 while (socket.Available > 0);
-                Console.WriteLine("ответ сервера: " + builder.ToString());
-
+                Console.WriteLine(builder.ToString());
                 // закрываем сокет
                 //todo: удаление себя из списка в сервере
                 socket.Shutdown(SocketShutdown.Both);
