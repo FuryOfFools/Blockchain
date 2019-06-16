@@ -65,18 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Block.cs" />
-    <Compile Include="Blockchain.cs" />
+    <Compile Include="Blockchain\Block.cs" />
+    <Compile Include="Blockchain\Blockchain.cs" />
     <Compile Include="BlockchainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BlockchainForm.Designer.cs">
       <DependentUpon>BlockchainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client.cs" />
-    <Compile Include="IBlock.cs" />
-    <Compile Include="LocalInteractions.cs" />
-    <Compile Include="OnlineInteractions.cs" />
+    <Compile Include="Interactions\Client.cs" />
+    <Compile Include="Blockchain\IBlock.cs" />
+    <Compile Include="Interactions\LocalInteractions.cs" />
+    <Compile Include="Interactions\OnlineInteractions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
