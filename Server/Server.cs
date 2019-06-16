@@ -8,14 +8,23 @@ namespace Server
 {
     struct Client
     {
-        public string name;
+        public string name;//todo: переделать на чисто айпи
         public string ip;
         public int port;
     }
     class Server
     {
+        /// <summary>
+        /// ip адрес сервера
+        /// </summary>
         public IPAddress IP { get; private set; }
+        /// <summary>
+        /// порт сервера
+        /// </summary>
         public int port { get; private set; }
+        /// <summary>
+        /// список клиентов в сети
+        /// </summary>
         public List<Client> clients { get; private set; }
 
         public Server(IPAddress IP, int port)
@@ -24,6 +33,13 @@ namespace Server
             this.port = port;
         }
         #region ClientsActions
+        /// <summary>
+        /// Добавить клиента в список
+        /// </summary>
+        /// <param name="clients">Список клиентов</param>
+        /// <param name="name">Ник клиента</param>
+        /// <param name="endPoint">адрес клиента</param>
+        /// <returns>Список клиентов</returns>
         private List<Client> AddClient(List<Client> clients, string name, EndPoint endPoint)
         {
             string endp = Convert.ToString(endPoint);
@@ -50,6 +66,11 @@ namespace Server
             }
             return clients;
         }
+        /// <summary>
+        /// Вывести список всех клиентов
+        /// </summary>
+        /// <param name="clients">Список клиентов</param>
+        /// <returns>Строка со всеми клиентами</returns>
         private string PrintClients(List<Client> clients)
         {
             string message = "";
@@ -59,6 +80,11 @@ namespace Server
             }
             return message;
         }
+        /// <summary>
+        /// Удалить клиента
+        /// </summary>
+        /// <param name="name">Ник клиента</param>
+        /// <param name="clients">Список клиентов</param>
         private void RemoveClient(string name, List<Client> clients)
         {
             foreach (Client cl in clients)
@@ -73,6 +99,11 @@ namespace Server
         #endregion
 
         #region SendRecieve
+        /// <summary>
+        /// Принять сообщение
+        /// </summary>
+        /// <param name="handler">Сокет клиента</param>
+        /// <returns>Принятое сообщение в виде строки</returns>
         private string RecieveMessage(Socket handler)
         {
             var builder = new StringBuilder();
@@ -86,6 +117,11 @@ namespace Server
             while (handler.Available > 0);
             return builder.ToString();
         }
+        /// <summary>
+        /// Отправить сообщение 
+        /// </summary>
+        /// <param name="handler">Сокет клинта</param>
+        /// <param name="message">Сообщение в виде строки</param>
         private void SendMessage(Socket handler, string message)
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
@@ -93,6 +129,9 @@ namespace Server
         }
         #endregion
 
+        /// <summary>
+        /// Функция прослушивания
+        /// </summary>
         public void Listen()
         {
             var ipPoint = new IPEndPoint(IP, port);
